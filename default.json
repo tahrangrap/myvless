@@ -1,7 +1,8 @@
 {
-    "name": "tahrangvless",
-    "email":"tahrangrap",
+    "name": "vless+tls+h2+reality",
+    "email":"sajjaddg",
     "port": 8000,
     "sni": "www.openstreetmap.org",
+    "myuid": "fc84ffe3-71be-47f0-9dfd-9bbc99d54d58",
     "path": "%2F"
 }
