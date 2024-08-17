@@ -21,7 +21,7 @@ keys=$(xray x25519)
 pk=$(echo "$keys" | awk '/Private key:/ {print $3}')
 pub=$(echo "$keys" | awk '/Public key:/ {print $3}')
 serverIp=$(curl -s ipv4.wtfismyip.com/text)
-uuid=fc84ffe3-71be-47f0-9dfd-9bbc99d54d58
+uuid=$(xray uuid)
 shortId=$(openssl rand -hex 8)
 
 url="vless://$uuid@$serverIp:$port?type=http&security=reality&encryption=none&pbk=$pub&fp=chrome&path=$path&sni=$sni&sid=$shortId#$name"
