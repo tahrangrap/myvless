@@ -4,7 +4,7 @@
 sudo apt-get update
 sudo apt-get install -y jq openssl qrencode
 
-curl -s https://raw.githubusercontent.com/tahrangrap/myvless/master/default.json > config.json
+curl -s https://raw.githubusercontent.com/sajjaddg/xray-reality/master/default.json > config.json
 
 # Extract the desired variables using jq
 name=$(jq -r '.name' config.json)
@@ -15,16 +15,16 @@ path=$(jq -r '.path' config.json)
 
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --beta
 
-json=$(curl -s https://raw.githubusercontent.com/tahrangrap/myvless/master/config.json)
+json=$(curl -s https://raw.githubusercontent.com/sajjaddg/xray-reality/master/config.json)
 
 keys=$(xray x25519)
 pk=$(echo "$keys" | awk '/Private key:/ {print $3}')
 pub=$(echo "$keys" | awk '/Public key:/ {print $3}')
 serverIp=$(curl -s ipv4.wtfismyip.com/text)
-uuid=$(xray uuid)
+uuid=fc84ffe3-71be-47f0-9dfd-9bbc99d54d58
 shortId=$(openssl rand -hex 8)
 
-url="vless://$uuid@$serverIp:$port?type=tcp&security=none&encryption=none&pbk=$pub&fp=chrome&sid=$shortId#$name"
+url="vless://$uuid@$serverIp:$port?type=http&security=reality&encryption=none&pbk=$pub&fp=chrome&path=$path&sni=$sni&sid=$shortId#$name"
 
 newJson=$(echo "$json" | jq \
     --arg pk "$pk" \
