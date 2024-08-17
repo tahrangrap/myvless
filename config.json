@@ -43,11 +43,20 @@
         ],
         "decryption": "none"
       },
-  "streamSettings": {
-    "network": "tcp",
-    "tcpSettings": { },
-    "security": "none"
-  },
+      "streamSettings": {
+        "network": "h2",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "",
+          "xver": 0,
+          "maxTimeDiff": 0,
+          "minClientVer": "1.8.0",
+          "serverNames": [],
+          "privateKey": "",
+          "shortIds": []
+        }
+      },
       "sniffing": {
         "enabled": true,
         "destOverride": ["http", "tls"]
